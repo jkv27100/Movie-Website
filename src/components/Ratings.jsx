@@ -1,15 +1,15 @@
 import React from 'react';
-import './style.css';
+import styles from './styles/ratings.module.css';
 
 function Ratings({ rating }) {
   const roundedRating = Math.round(rating) * 10;
   return (
-    <div className='star-ratings'>
-      <div className='fill-ratings' style={{ width: `${roundedRating}` }}>
-        <span className='rating'>★★★★★</span>
+    <div className={styles.star_ratings}>
+      <div className={styles.fill_ratings} style={{ width: `${roundedRating}%` }}>
+        <span className={styles.rating}>★★★★★</span>
       </div>
-      <div className='empty-ratings'>
-        <span className='rating'>★★★★★</span>
+      <div className={styles.empty_ratings}>
+        <span className={styles.rating}>★★★★★</span>
       </div>
     </div>
   );

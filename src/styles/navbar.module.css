@@ -78,3 +78,30 @@
   color: #2a2c31;
 }
 /* navlink style ends */
+
+.hamburger {
+  display: none;
+  color: #cae962;
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .site_name {
+    display: none;
+  }
+  .navlink_container {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar_link {
+    position: absolute;
+  }
+  .searchbar_container {
+    width: 200px;
+  }
+}

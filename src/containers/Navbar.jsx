@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import NavLinks from '../components/NavLinks';
 import SearchBar from '../components/SearchBar';
@@ -7,9 +9,18 @@ import SearchBar from '../components/SearchBar';
 import { storeMovieSearchDetails } from '../store/movieSlice';
 
 import styles from '../styles/navbar.module.css';
+import MobileNavLinks from '../components/MobileNavLinks';
 
 function Navbar() {
   const [searchText, setSearchText] = useState('');
+  const [openSideBar, setOpenSideBar] = useState(false);
+
+  const handleKeyUp = e => {
+    let code = e.keyCode || e.which;
+    if (code === 13) {
+      handleSearch();
+    }
+  };
 
   const dispath = useDispatch();
 
@@ -35,8 +46,15 @@ function Navbar() {
         value={searchText}
         onChange={handleTextChange}
         handleSearch={handleSearch}
+        onKeyUp={handleKeyUp}
+      />
+      <FontAwesomeIcon
+        icon={faBars}
+        className={styles.hamburger}
+        onClick={() => setOpenSideBar(true)}
       />
       <NavLinks />
+      {openSideBar && <MobileNavLinks setOpenSideBar={setOpenSideBar} />}
     </div>
   );
 }

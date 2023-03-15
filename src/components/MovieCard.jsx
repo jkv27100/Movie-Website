@@ -2,7 +2,7 @@ import React from 'react';
 
 import Ratings from './Ratings';
 
-import styles from '../styles/homepage.module.css';
+import styles from './styles/moviecard.module.css';
 
 function MovieCard({ title, rating, posterPath, language, onClick }) {
   return (

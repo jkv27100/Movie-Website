@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { storeFavMovie, removeFavMovie } from '../store/favoriteSlice';
 
-import './style.css';
+import styles from './styles/modal.module.css';
 
 const content = {
   top: '50%',
@@ -13,7 +15,8 @@ const content = {
   bottom: 'auto',
   transform: 'translate(-50%, -50%)',
   padding: 0,
-  borderRadius: '20px',
+  borderRadius: '10px',
+  boxShadow: 'rgba(182, 176, 176, 0.35) 0px 5px 15px',
 };
 
 function Modal({ show, setShow, movie, location }) {
@@ -39,35 +42,40 @@ function Modal({ show, setShow, movie, location }) {
       }}
       ariaHideApp={false}
     >
-      <div className='modal_content'>
+      <div className={styles.modal_content}>
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
           alt=''
-          className='modal_bg_img'
+          className={styles.modal_bg_img}
         />
-        <div className='overlay'>
-          <div className='top_section'>
+        <div className={styles.overlay}>
+          <div className={styles.top_section}>
             <button
-              className='fav_btn'
+              className={styles.fav_btn}
               onClick={location === 'fav' ? handleRemoveFav : handleAddFav}
             >
               {location === 'home' ? 'Add To Favorite' : 'Remove From Favorite'}
             </button>
-            <button className='close_btn' onClick={() => setShow(false)}>
-              Close
-            </button>
+
+            <FontAwesomeIcon
+              icon={faXmark}
+              className={styles.close_btn}
+              onClick={() => setShow(false)}
+            />
           </div>
-          <div className='movie_details'>
+          <div className={styles.movie_details}>
             <h1>{movie.title}</h1>
-            <div className='movie_tag'>
-              <span className='lang'>{movie.original_language}</span>
-              <span className='movie_rating'>★</span>
-              <span className='voting'>
+            <div className={styles.movie_tag}>
+              <span className={styles.lang}>{movie.original_language}</span>
+              <span className={styles.movie_rating}>★</span>
+              <span className={styles.voting}>
                 {Math.round(movie.vote_average)} | {movie.vote_count}
               </span>
-              <span className='movie_year'>&#183; 2013</span>
+              <span className={styles.movie_year}>
+                &#183; {movie.release_date ? movie.release_date : null}
+              </span>
             </div>
-            <p className='movie_description'>{movie.overview}</p>
+            <p className={styles.movie_description}>{movie.overview}</p>
           </div>
         </div>
       </div>

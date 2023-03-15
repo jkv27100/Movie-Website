@@ -4,12 +4,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../styles/navbar.module.css';
 
-function SearchBar({ onChange, placeholder, header, value, handleSearch }) {
+function SearchBar({ onChange, placeholder, header, value, handleSearch, onKeyUp }) {
   return (
     <div className={styles.nav_header_container}>
       <h1 className={styles.site_name}>{header}</h1>
       <div className={styles.searchbar_container}>
         <input
+          onKeyUp={onKeyUp}
           className={styles.searchbar_input}
           placeholder={placeholder}
           value={value}

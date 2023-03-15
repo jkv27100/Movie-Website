@@ -1,0 +1,27 @@
+.star_ratings {
+  unicode-bidi: bidi-override;
+  color: #ccc;
+  font-size: 20px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+}
+.empty_ratings {
+  padding: 0;
+  display: block;
+  z-index: 0;
+}
+.fill_ratings {
+  color: #e7711b;
+  padding: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.rating {
+  display: inline-block;
+}
