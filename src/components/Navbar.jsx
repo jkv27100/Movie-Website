@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import NavLinks from '../components/NavLinks';
-import SearchBar from '../components/SearchBar';
+import NavLinks from './NavLinks';
+import SearchBar from './SearchBar';
 
 import { storeMovieSearchDetails } from '../store/movieSlice';
 
-import styles from '../styles/navbar.module.css';
-import MobileNavLinks from '../components/MobileNavLinks';
+import styles from './styles/navbar.module.css';
+import MobileNavLinks from './MobileNavLinks';
 
 function Navbar() {
   const [searchText, setSearchText] = useState('');

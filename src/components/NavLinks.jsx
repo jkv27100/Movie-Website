@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import styles from '../styles/navbar.module.css';
+import styles from './styles/navbar.module.css';
 
 function NavLinks() {
   const { pathname } = useLocation();

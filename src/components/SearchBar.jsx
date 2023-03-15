@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import styles from '../styles/navbar.module.css';
+import styles from './styles/navbar.module.css';
 
 function SearchBar({ onChange, placeholder, header, value, handleSearch, onKeyUp }) {
   return (

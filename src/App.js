@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './containers/Navbar';
+import Navbar from './components/Navbar';
 import MovieRoute from './Routes/index';
 
 function App() {
