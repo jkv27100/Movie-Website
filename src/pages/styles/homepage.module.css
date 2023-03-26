@@ -27,7 +27,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background-color: red;
+  place-items: center;
   padding: 40px;
   color: #cae962;
 }
